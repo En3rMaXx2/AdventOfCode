@@ -28,53 +28,53 @@ public class Day1 {
     }
 
     public static int day1No2() throws IOException {
-        String[] array1 = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/Day1.txt");
+        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/Day1.txt");
 
-        int sum1=0;
+        int sum =0;
         int no1 =0;
         int no2 =0;
         int no3 =0;
 
-        for (int i=0; i<array1.length; i++) {
-            if(array1[i].equals("")) {
-                if(no1 <sum1) {
+        for (int i = 0; i< array.length; i++) {
+            if(array[i].equals("")) {
+                if(no1 < sum) {
                     no3 = no2;
                     no2= no1;
-                    no1 =sum1;
+                    no1 = sum;
 
                 }
-                else if(no2 <sum1) {
+                else if(no2 < sum) {
                     no3=no2;
-                    no2 =sum1;
+                    no2 = sum;
                 }
-                else if(no3 <sum1) {
-                    no3 =sum1;
+                else if(no3 < sum) {
+                    no3 = sum;
                 }
-                sum1=0;
+                sum =0;
 
             }
             else {
 
-                sum1+=Integer.parseInt(array1[i]);
+                sum +=Integer.parseInt(array[i]);
             }
 
 
         }
 
-        if(no1 <sum1) {
+        if(no1 < sum) {
             no3 = no2;
             no2= no1;
-            no1 =sum1;
+            no1 = sum;
 
         }
-        else if(no2 <sum1) {
+        else if(no2 < sum) {
             no3=no2;
-            no2 =sum1;
+            no2 = sum;
         }
-        else if(no3 <sum1) {
-            no3 =sum1;
+        else if(no3 < sum) {
+            no3 = sum;
         }
-        return sum1;
+        return sum;
     }
 
 
