@@ -1,5 +1,6 @@
 import days.Day2;
 import days.Day3;
+import days.Day4;
 
 import java.io.*;
 
@@ -12,6 +13,9 @@ public class Main {
         //System.out.println(Day2.day2No2());
 
         //System.out.println(Day3.day3No1());
-        System.out.println(Day3.day3No2());
+        //System.out.println(Day3.day3No2());
+
+        //System.out.println(Day4.day4No1());
+        System.out.println(Day4.day4No2());
     }
 }
