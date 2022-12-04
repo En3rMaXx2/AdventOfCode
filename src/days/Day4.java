@@ -1,60 +1,58 @@
 package days;
 
 import java.io.IOException;
+
 import service.TextReader;
 
 public class Day4 {
 
     public static int day4No1() throws IOException {
         String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/Day4.txt");
-        String beginA="";
-        String endA="";
-        String beginB="";
-        String endB="";
+        String beginA;
+        String endA;
+        String beginB;
+        String endB;
+        int counter = 0;
 
-        int counter=0;
+        boolean firstDash;
 
-        boolean checkFirst=true;
+        for (int i = 0; i < array.length; i++) {
+            String temp = "";
 
-        String temp="";
+            beginA = "";
+            beginB = "";
+            endA = "";
+            endB = "";
+            firstDash = true;
 
-        for (int i=0; i<array.length; i++) {
-
-            for (int a=0; a<array[i].length(); a++) {
-
-                if(array[i].charAt(a) == '-' && checkFirst==true) {
-                    beginA=temp;
-                    temp="";
+            for (int a = 0; a < array[i].length(); a++) {
+                if (array[i].charAt(a) == '-' && firstDash) {
+                    beginA = temp;
+                    temp = "";
                     a++;
-                    checkFirst=false;
-                }
-                if(array[i].charAt(a) == '-' && checkFirst==false) {
-                    beginB=temp;
-                    temp="";
+                    firstDash = false;
+                } else if (array[i].charAt(a) == '-' && !firstDash) {
+                    beginB = temp;
+                    temp = "";
+                    a++;
+                } else if (array[i].charAt(a) == ',') {
+                    endA = temp;
+                    temp = "";
                     a++;
                 }
-                else if(array[i].charAt(a) == ',') {
-                    endA=temp;
-                    temp="";
-                    a++;
-                }
-                temp+=array[i].charAt(a);
-                }
-            endB=temp;
-            temp="";
+                temp += array[i].charAt(a);
+            }
+
+            endB = temp;
+
+            // Example 2-4,6-8
+            // beginA 2 - endA 4 - beginB 6 - endB 8
 
             if (Integer.parseInt(beginA) <= Integer.parseInt(beginB) && Integer.parseInt(endA) >= Integer.parseInt(endB)) {
                 counter++;
-            }
-            else if (Integer.parseInt(beginA) >= Integer.parseInt(beginB) && Integer.parseInt(endA) <= Integer.parseInt(endB)) {
+            } else if (Integer.parseInt(beginA) >= Integer.parseInt(beginB) && Integer.parseInt(endA) <= Integer.parseInt(endB)) {
                 counter++;
             }
-
-            checkFirst=true;
-            beginA="";
-            beginB="";
-            endA="";
-            endB="";
         }
 
         return counter;
@@ -62,57 +60,51 @@ public class Day4 {
 
     public static int day4No2() throws IOException {
         String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/Day4.txt");
-        String beginA="";
-        String endA="";
-        String beginB="";
-        String endB="";
+        String beginA;
+        String endA;
+        String beginB;
+        String endB;
 
-        int counter=0;
+        int counter = 0;
+        boolean firstDash;
 
-        boolean checkFirst=true;
+        for (int i = 0; i < array.length; i++) {
+            String temp = "";
 
-        String temp="";
+            beginA = "";
+            beginB = "";
+            endA = "";
+            endB = "";
+            firstDash = true;
 
-        for (int i=0; i<array.length; i++) {
-
-            for (int a=0; a<array[i].length(); a++) {
-
-                if(array[i].charAt(a) == '-' && checkFirst==true) {
-                    beginA=temp;
-                    temp="";
+            for (int a = 0; a < array[i].length(); a++) {
+                if (array[i].charAt(a) == '-' && firstDash) {
+                    beginA = temp;
+                    temp = "";
                     a++;
-                    checkFirst=false;
-                }
-                if(array[i].charAt(a) == '-' && checkFirst==false) {
-                    beginB=temp;
-                    temp="";
+                    firstDash = false;
+                } else if (array[i].charAt(a) == '-' && !firstDash) {
+                    beginB = temp;
+                    temp = "";
+                    a++;
+                } else if (array[i].charAt(a) == ',') {
+                    endA = temp;
+                    temp = "";
                     a++;
                 }
-                else if(array[i].charAt(a) == ',') {
-                    endA=temp;
-                    temp="";
-                    a++;
-                }
-                temp+=array[i].charAt(a);
+                temp += array[i].charAt(a);
             }
-            endB=temp;
-            temp="";
 
-            if (Integer.parseInt(beginA) > Integer.parseInt(endB) && Integer.parseInt(endB) < Integer.parseInt(beginA)) {
+            endB = temp;
+
+            // Example 2-4,6-8
+            // beginA 2 - endA 4 - beginB 6 - endB 8
+
+            if (Integer.parseInt(beginA) > Integer.parseInt(endB)) {
                 //Do nothing
-            }
-            else if (Integer.parseInt(endA) >= Integer.parseInt(beginB) && Integer.parseInt(beginB) <= Integer.parseInt(endA)) {
+            } else if (Integer.parseInt(endA) >= Integer.parseInt(beginB)) {
                 counter++;
             }
-            else {
-                //Do nothing
-            }
-
-            checkFirst=true;
-            beginA="";
-            beginB="";
-            endA="";
-            endB="";
         }
 
         return counter;
