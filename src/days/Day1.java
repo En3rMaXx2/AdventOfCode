@@ -74,6 +74,7 @@ public class Day1 {
         else if(no3 < sum) {
             no3 = sum;
         }
+        sum=no1+no2+no3;
         return sum;
     }
 

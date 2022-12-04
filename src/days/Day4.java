@@ -43,8 +43,6 @@ public class Day4 {
             endB=temp;
             temp="";
 
-            System.out.println(beginA + "-" + endA + "," + beginB + "-" + endB);
-
             if (Integer.parseInt(beginA) <= Integer.parseInt(beginB) && Integer.parseInt(endA) >= Integer.parseInt(endB)) {
                 counter++;
             }
@@ -100,16 +98,14 @@ public class Day4 {
             endB=temp;
             temp="";
 
-            System.out.println(beginA + "-" + endA + "," + beginB + "-" + endB);
-
             if (Integer.parseInt(beginA) > Integer.parseInt(endB) && Integer.parseInt(endB) < Integer.parseInt(beginA)) {
-                System.out.println("AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
+                //Do nothing
             }
             else if (Integer.parseInt(endA) >= Integer.parseInt(beginB) && Integer.parseInt(beginB) <= Integer.parseInt(endA)) {
                 counter++;
             }
             else {
-                System.out.println("AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
+                //Do nothing
             }
 
             checkFirst=true;
