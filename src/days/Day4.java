@@ -48,6 +48,7 @@ public class Day4 {
             // Example 2-4,6-8
             // beginA 2 - endA 4 - beginB 6 - endB 8
 
+            //TODO needs adjustment
             if (Integer.parseInt(beginA) <= Integer.parseInt(beginB) && Integer.parseInt(endA) >= Integer.parseInt(endB)) {
                 counter++;
             } else if (Integer.parseInt(beginA) >= Integer.parseInt(beginB) && Integer.parseInt(endA) <= Integer.parseInt(endB)) {
@@ -100,6 +101,7 @@ public class Day4 {
             // Example 2-4,6-8
             // beginA 2 - endA 4 - beginB 6 - endB 8
 
+            //TODO needs adjustment
             if (Integer.parseInt(beginA) > Integer.parseInt(endB)) {
                 //Do nothing
             } else if (Integer.parseInt(endA) >= Integer.parseInt(beginB)) {
