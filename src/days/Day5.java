@@ -1,7 +1,7 @@
 package days;
 
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
@@ -9,78 +9,63 @@ import service.TextReader;
 
 public class Day5 {
 
-    //TODO refactor
+    //TODO edit method that Day5Example.txt and Day5.txt work without the "]" at the end
     public static String day5No1() throws IOException {
         String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/Day5.txt");
+        int locateLastRowOfStack = 0;
+        int locateBeginningOfText = 0;
+        int amoutOfStacks = 0;
 
-        List<Stack<Character>> listOfCrates = Arrays.asList(new Stack<>(), new Stack<>(), new Stack<>(), new Stack<>(), new Stack<>(), new Stack<>(), new Stack<>(), new Stack<>(), new Stack<>());
-
-
-        int x = 0;
-        while (array[x].charAt(1) != '1') {
-            x++;
-        }
-        x--;
-
-        for (int i = x; i >= 0; i--) {
-            if (array[i].charAt(1) != ' ') {
-                listOfCrates.get(0).push(array[i].charAt(1));
-            }
-            if (array[i].charAt(5) != ' ') {
-                listOfCrates.get(1).push(array[i].charAt(5));
-            }
-            if (array[i].charAt(9) != ' ') {
-                listOfCrates.get(2).push(array[i].charAt(9));
-            }
-
-
-            if (array[i].charAt(13) != ' ') {
-                listOfCrates.get(3).push(array[i].charAt(13));
-            }
-            if (array[i].charAt(17) != ' ') {
-                listOfCrates.get(4).push(array[i].charAt(17));
-            }
-            if (array[i].charAt(21) != ' ') {
-                listOfCrates.get(5).push(array[i].charAt(21));
-            }
-            if (array[i].charAt(25) != ' ') {
-                listOfCrates.get(6).push(array[i].charAt(25));
-            }
-            if (array[i].charAt(29) != ' ') {
-                listOfCrates.get(7).push(array[i].charAt(29));
-            }
-            if (array[i].charAt(33) != ' ') {
-                listOfCrates.get(8).push(array[i].charAt(33));
-            }
-
-
+        while (array[locateLastRowOfStack + 1].charAt(1) != '1') {
+            locateLastRowOfStack++;
         }
 
-        while (array[x].charAt(0) != 'm') {
-            x++;
+        amoutOfStacks = array[locateLastRowOfStack + 1].charAt(array[locateLastRowOfStack + 1].length() - 1) - 48;
+
+        List<Stack<Character>> listOfCrates = new ArrayList<>();
+        for (int i = 0; i < amoutOfStacks; i++) {
+            listOfCrates.add(new Stack<>());
         }
 
-        for (int i = x; i < array.length; i++) {
+
+        for (int i = locateLastRowOfStack; i >= 0; i--) {
+            int whichStack = 0;
+            int charPlaceInRow = 1;
+
+            for (int j = 0; j < amoutOfStacks; j++) {
+                if (array[i].charAt(charPlaceInRow) != ' ') {
+                    listOfCrates.get(whichStack).push(array[i].charAt(charPlaceInRow));
+                }
+                whichStack++;
+                charPlaceInRow += 4;
+            }
+        }
+
+        while (!array[locateBeginningOfText].isEmpty()) {
+            locateBeginningOfText++;
+        }
+        locateBeginningOfText++;
+
+        for (int i = locateBeginningOfText; i < array.length; i++) {
 
             int howManyCrates = 0;
-            int from = 0;
-            int to = 0;
+            int fromWhere = 0;
+            int toWhere = 0;
 
             String[] arraySplit = array[i].split(" ");
             howManyCrates = Integer.parseInt(arraySplit[1]);
-            from = Integer.parseInt(arraySplit[3]);
-            to = Integer.parseInt(arraySplit[5]);
+            fromWhere = Integer.parseInt(arraySplit[3]) - 1;
+            toWhere = Integer.parseInt(arraySplit[5]) - 1;
 
             while (howManyCrates != 0) {
-                listOfCrates.get(to - 1).push(listOfCrates.get(from - 1).peek());
-                listOfCrates.get(from - 1).pop();
+                listOfCrates.get(toWhere).push(listOfCrates.get(fromWhere).peek());
+                listOfCrates.get(fromWhere).pop();
                 howManyCrates--;
             }
-
         }
 
         String result = "";
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < amoutOfStacks; i++) {
             if (listOfCrates.get(i) != null) {
                 result += listOfCrates.get(i).peek();
             }
@@ -90,85 +75,71 @@ public class Day5 {
 
     public static String day5No2() throws IOException {
         String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/Day5.txt");
+        int locateLastRowOfStack = 0;
+        int locateBeginningOfText = 0;
+        int amoutOfStacks = 0;
 
-        List<Stack<Character>> listOfCrates = Arrays.asList(new Stack<>(), new Stack<>(), new Stack<>(), new Stack<>(), new Stack<>(), new Stack<>(), new Stack<>(), new Stack<>(), new Stack<>());
-
-
-        int x = 0;
-        while (array[x].charAt(1) != '1') {
-            x++;
+        while (array[locateLastRowOfStack + 1].charAt(1) != '1') {
+            locateLastRowOfStack++;
         }
-        x--;
 
-        for (int i = x; i >= 0; i--) {
-            if (array[i].charAt(1) != ' ') {
-                listOfCrates.get(0).push(array[i].charAt(1));
-            }
-            if (array[i].charAt(5) != ' ') {
-                listOfCrates.get(1).push(array[i].charAt(5));
-            }
-            if (array[i].charAt(9) != ' ') {
-                listOfCrates.get(2).push(array[i].charAt(9));
-            }
+        amoutOfStacks = array[locateLastRowOfStack + 1].charAt(array[locateLastRowOfStack + 1].length() - 1) - 48;
+
+        List<Stack<Character>> listOfStacksCrates = new ArrayList<>();
+        for (int i = 0; i < amoutOfStacks; i++) {
+            listOfStacksCrates.add(new Stack<>());
+        }
 
 
-            if (array[i].charAt(13) != ' ') {
-                listOfCrates.get(3).push(array[i].charAt(13));
-            }
-            if (array[i].charAt(17) != ' ') {
-                listOfCrates.get(4).push(array[i].charAt(17));
-            }
-            if (array[i].charAt(21) != ' ') {
-                listOfCrates.get(5).push(array[i].charAt(21));
-            }
-            if (array[i].charAt(25) != ' ') {
-                listOfCrates.get(6).push(array[i].charAt(25));
-            }
-            if (array[i].charAt(29) != ' ') {
-                listOfCrates.get(7).push(array[i].charAt(29));
-            }
-            if (array[i].charAt(33) != ' ') {
-                listOfCrates.get(8).push(array[i].charAt(33));
+        for (int i = locateLastRowOfStack; i >= 0; i--) {
+            int whichStack = 0;
+            int charPlaceInRow = 1;
+
+            for (int j = 0; j < amoutOfStacks; j++) {
+                if (array[i].charAt(charPlaceInRow) != ' ') {
+                    listOfStacksCrates.get(whichStack).push(array[i].charAt(charPlaceInRow));
+                }
+                whichStack++;
+                charPlaceInRow += 4;
             }
         }
 
-        while (array[x].charAt(0) != 'm') {
-            x++;
+        while (!array[locateBeginningOfText].isEmpty()) {
+            locateBeginningOfText++;
         }
+        locateBeginningOfText++;
 
-        Stack<Character> temp = new Stack<Character>();
-
-        for (int i = x; i < array.length; i++) {
+        Stack<Character> tempStackCrates = new Stack<Character>();
+        for (int i = locateBeginningOfText; i < array.length; i++) {
 
             int howManyCrates = 0;
             int tempHowManyCrates = 0;
-            int from = 0;
-            int to = 0;
+            int fromWhere = 0;
+            int toWhere = 0;
 
             String[] arraySplit = array[i].split(" ");
             howManyCrates = Integer.parseInt(arraySplit[1]);
-            from = Integer.parseInt(arraySplit[3]);
-            to = Integer.parseInt(arraySplit[5]);
-
+            fromWhere = Integer.parseInt(arraySplit[3]) - 1;
+            toWhere = Integer.parseInt(arraySplit[5]) - 1;
             tempHowManyCrates = howManyCrates;
 
             while (howManyCrates != 0) {
-                temp.push(listOfCrates.get(from - 1).peek());
-                listOfCrates.get(from - 1).pop();
+                tempStackCrates.push(listOfStacksCrates.get(fromWhere).peek());
+                listOfStacksCrates.get(fromWhere).pop();
                 howManyCrates--;
             }
+
             while (tempHowManyCrates != 0) {
-                listOfCrates.get(to - 1).push(temp.peek());
-                temp.pop();
+                listOfStacksCrates.get(toWhere).push(tempStackCrates.peek());
+                tempStackCrates.pop();
                 tempHowManyCrates--;
             }
-
         }
 
         String result = "";
-        for (int i = 0; i < 9; i++) {
-            if (listOfCrates.get(i) != null) {
-                result += listOfCrates.get(i).peek();
+        for (int i = 0; i < amoutOfStacks; i++) {
+            if (listOfStacksCrates.get(i) != null) {
+                result += listOfStacksCrates.get(i).peek();
             }
         }
         return result;
