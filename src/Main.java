@@ -24,6 +24,10 @@ public class Main {
 
         System.out.println("\nDay 5");
         System.out.println(Day5.day5No1());
+
+        //System.out.println("\nDay 6");
+        //System.out.println(Day6.day6No1());
+        //System.out.println(Day6.day6No2());
     }
 
 }
