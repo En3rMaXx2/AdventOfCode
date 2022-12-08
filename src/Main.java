@@ -29,10 +29,14 @@ public class Main {
         System.out.println("\nDay 6");
         System.out.println(Day6.day6No1());
         System.out.println(Day6.day6No2());
-        */
 
         System.out.println("\nDay 7");
         System.out.println(Day7.day7No1());
+         */
+
+        System.out.println("\nDay 8");
+        //System.out.println(Day8.day8No1());
+        System.out.println(Day8.day8No2());
     }
 
 
