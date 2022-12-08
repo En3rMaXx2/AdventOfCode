@@ -35,8 +35,8 @@ public class Main {
          */
 
         System.out.println("\nDay 8");
-        //System.out.println(Day8.day8No1());
-        System.out.println(Day8.day8No2());
+        System.out.println(Day8.day8No1());
+        //System.out.println(Day8.day8No2());
     }
 
 
