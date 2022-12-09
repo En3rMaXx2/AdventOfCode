@@ -1,4 +1,4 @@
-package days;
+package days.day3;
 
 import java.io.IOException;
 
@@ -7,7 +7,7 @@ import service.TextReader;
 public class Day3 {
 
     public static int day3No1() throws IOException {
-        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/Day3.txt");
+        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/day3/Day3.txt");
         String firstHalfOfCompartment;
         String secondHalfOfCompartment;
         char letterInBothCompartments = 0;
@@ -42,7 +42,7 @@ public class Day3 {
     }
 
     public static int day3No2() throws IOException {
-        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/Day3.txt");
+        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/day3/Day3.txt");
         String firstCompartment;
         String secondCompartment;
         String firstSecondSimilarities = "";

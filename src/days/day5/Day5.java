@@ -1,4 +1,4 @@
-package days;
+package days.day5;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ public class Day5 {
 
     //TODO edit method that Day5Example.txt and Day5.txt work without the "]" at the end
     public static String day5No1() throws IOException {
-        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/Day5.txt");
+        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/day5/Day5.txt");
         int locateLastRowOfStack = 0;
         int locateBeginningOfText = 0;
         int amoutOfStacks = 0;
@@ -74,7 +74,7 @@ public class Day5 {
     }
 
     public static String day5No2() throws IOException {
-        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/Day5.txt");
+        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/day5/Day5.txt");
         int locateLastRowOfStack = 0;
         int locateBeginningOfText = 0;
         int amoutOfStacks = 0;

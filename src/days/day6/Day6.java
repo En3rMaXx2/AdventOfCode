@@ -1,4 +1,4 @@
-package days;
+package days.day6;
 
 import java.io.IOException;
 
@@ -7,7 +7,7 @@ import service.TextReader;
 public class Day6 {
 
     public static int day6No1() throws IOException {
-        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/Day6.txt");
+        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/day6/Day6.txt");
         String _4Characters = "";
         int afterCharacter = 4;
 
@@ -42,7 +42,7 @@ public class Day6 {
     }
 
     public static int day6No2() throws IOException {
-        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/Day6.txt");
+        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/day6/Day6.txt");
         String _14Characters = "";
         int afterCharacter = 14;
 

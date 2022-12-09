@@ -1,4 +1,4 @@
-package days;
+package days.day8;
 
 import java.io.IOException;
 
@@ -7,7 +7,7 @@ import service.TextReader;
 public class Day8 {
 
     public static int day8No1() throws IOException {
-        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/Day8.txt");
+        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/day8/Day8.txt");
 
         int[][] treeSystem = new int[array[0].length()][array.length];
         int counter = 0;
@@ -83,7 +83,7 @@ public class Day8 {
     }
 
     public static int day8No2() throws IOException {
-        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/Day8.txt");
+        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/day8/Day8.txt");
 
         int[][] treeSystem = new int[array[0].length()][array.length];
         int tempSpot = 0;
@@ -117,7 +117,6 @@ public class Day8 {
         int lookingDown = 0;
         int sum = 0;
 
-        System.out.println(mainTree);
         // 3  0  3  7  3
         // 2  5 |5| 1  2
         // 6  5  3  3  2
@@ -137,7 +136,6 @@ public class Day8 {
                 break;
             }
         }
-        System.out.println("lookingLeft " + lookingLeft);
         for (int i = x + 1; i < treeSystem[y].length; i++) {
 
             if (mainTree > treeSystem[y][i]) {
@@ -151,7 +149,6 @@ public class Day8 {
             }
 
         }
-        System.out.println("lookingRight " + lookingRight);
         for (int i = y - 1; i >= 0; i--) {
 
             if (mainTree > treeSystem[i][x]) {
@@ -164,7 +161,6 @@ public class Day8 {
                 break;
             }
         }
-        System.out.println("lookingUp " + lookingUp);
         for (int i = y + 1; i < treeSystem.length; i++) {
             if (mainTree > treeSystem[i][x]) {
                 lookingDown++;
@@ -176,10 +172,8 @@ public class Day8 {
                 break;
             }
         }
-        System.out.println("lookingDown " + lookingDown);
 
         sum = lookingLeft * lookingRight * lookingUp * lookingDown;
-        System.out.println(sum);
         return sum;
     }
 

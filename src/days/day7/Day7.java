@@ -1,4 +1,4 @@
-package days;
+package days.day7;
 
 import java.io.IOException;
 
@@ -7,7 +7,7 @@ import service.TextReader;
 public class Day7 {
 
     public static int day7No1() throws IOException {
-        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/Day7Example.txt");
+        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/day7/Day7Example.txt");
         int dirSum =0;
         int endSum=0;
 
@@ -19,7 +19,7 @@ public class Day7 {
             if(split[0].equals("$")){
                 if(dirSum < 100000) {
                     endSum+= dirSum;
-                    System.out.println(dirSum);
+                    //System.out.println(dirSum);
                 }
                 dirSum =0;
             }

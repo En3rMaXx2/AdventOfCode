@@ -1,0 +1,12 @@
+import java.io.IOException;
+
+import service.TextReader;
+
+public class Day[DayNo] {
+
+    public static int day[DayNo]No1() throws IOException {
+        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/[day]/[Day.txt]");
+        return 0;
+    }
+
+}

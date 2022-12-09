@@ -1,4 +1,4 @@
-package days;
+package days.day1;
 
 import java.io.IOException;
 
@@ -7,7 +7,7 @@ import service.TextReader;
 public class Day1 {
 
     public static int day1No1() throws IOException {
-        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/Day1.txt");
+        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/day1/Day1.txt");
 
         int caloriesCarriedByEachElf = 0;
         int mostCalories = 0;
@@ -28,7 +28,7 @@ public class Day1 {
     }
 
     public static int day1No2() throws IOException {
-        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/Day1.txt");
+        String[] array = TextReader.textFileToArray("C:/Projekte/AdventOfCode/src/resources/day1/Day1.txt");
 
         int caloriesCarriedByEachElf = 0;
         int no1_Elf = 0;
